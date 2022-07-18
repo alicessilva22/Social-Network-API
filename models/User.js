@@ -5,16 +5,33 @@ const userSchema = new Schema(
     {
         username: { type: String, required: true },
         email: { type: String, required: true },
-        friends: [
-        ],
         thoughts: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: "Thought",
+            },
+          ],
+          friends: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: "User",
+            },
+          ]
+        },
+        {
+          toJSON: {
+            virtuals: true,
+            getters: true,
+          },
+          id: false,
+        }
+      );
+      
+      userSchema.virtual("friendCount").get(function() {
+        return this.friends.length;
+      });
 
-        ],
-        reactions:
-  },
-);
-
-// Initialize our User model
+// Initialize User model
 const User = model('user', userSchema);
 
 module.exports = User;

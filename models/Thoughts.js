@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose');
 // Schema to create Thoughts model
 const thoughtsSchema = new Schema(
     {
-        body: { type: text, required: true },
+        body: { type: Text, required: true },
         created: { type: Date, default: Date.now },
     },
 );
