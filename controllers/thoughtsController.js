@@ -24,7 +24,7 @@ module.exports = {
     },
     // update a thought
     updateSingleThought(req, res) {
-        Thoughts.findOneAndUpdate({ body: '' }, { body: req.params.thought}, { new: true }, (err, result) => {
+        Thoughts.findOneAndUpdate({ body: '' }, { body: req.params.thought }, { new: true }, (err, result) => {
             if (result) {
                 res.status(200).json(result);
             } else {
