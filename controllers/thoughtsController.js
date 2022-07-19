@@ -25,7 +25,7 @@ module.exports = {
     // update a thought
     updateSingleThought(req, res) {
         Thoughts.findOneAndUpdate(
-            { _id: req.params.thoughtsId },
+            { _id: req.params.thoughtId },
             { $set: req.body },
             { new: true }
         ).then(result => {

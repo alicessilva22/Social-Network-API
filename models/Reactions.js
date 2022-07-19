@@ -1,6 +1,6 @@
 const { Schema, Types } = require('mongoose');
 
-// Schema to create reaction model
+// Schema for reaction
 const reactionsSchema = new Schema(
     {
         reactionId: {
@@ -12,14 +12,14 @@ const reactionsSchema = new Schema(
             required: true,
             maxLength: 280
         },
-        createdAt: {
-            type: Date,
-            default: Date.now
-        },
         username: {
             type: String,
             required: true
         },
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
     },
     {
         toJSON: {
