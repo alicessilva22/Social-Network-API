@@ -35,8 +35,7 @@ module.exports = {
                 console.log('Uh Oh, something went wrong');
                 res.status(500).json({ message: 'something went wrong' });
             }
-
-        })
+        });
     },
     // delete a user
     deleteSingleUser(req, res) {
@@ -49,21 +48,22 @@ module.exports = {
                 console.log('Uh Oh, something went wrong');
                 res.status(500).json({ message: 'something went wrong' });
             }
-
-        })
+        });
     },
 
     addFriend(req, res) {
-        User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
-            .then(result => {
-                if (result) {
-                    res.status(200).json(result);
-                } else {
-                    console.log('Uh Oh, something went wrong');
-                    res.status(500).json({ message: 'something went wrong' });
-                }
-
-            })
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.params.friendId } },
+            { new: true }
+        ).then(result => {
+            if (result) {
+                res.status(200).json(result);
+            } else {
+                console.log('Uh Oh, something went wrong');
+                res.status(500).json({ message: 'something went wrong' });
+            }
+        });
     },
 
     removeFriend(req, res) {
@@ -78,7 +78,6 @@ module.exports = {
                 console.log('Uh Oh, something went wrong');
                 res.status(500).json({ message: 'something went wrong' });
             }
-
-        })
-    }
+        });
+    },
 };
