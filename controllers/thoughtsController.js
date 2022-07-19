@@ -40,7 +40,7 @@ module.exports = {
     // delete a thought
     deleteSingleThought(req, res) {
         Thoughts.findOneAndDelete(
-            { _id: req.params.userId }
+            { _id: req.params.thoughtId }
         ).then(result => {
             if (result) {
                 res.status(200).json(result);
